@@ -111,18 +111,18 @@ export default function ChatPage() {
       <div
         ref={viewRef}
         style={{
-          border: "1px solid #e5e7eb",
-          borderRadius: 6,
-          padding: 12,
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          borderRadius: 8,
+          padding: 16,
           minHeight: 220,
           maxHeight: 360,
           overflowY: "auto",
-          background: "#fff",
+          background: "rgba(255, 255, 255, 0.02)",
           marginTop: 8
         }}
       >
         {messages.map((m, idx) => (
-          <p key={idx} style={{ whiteSpace: "pre-wrap" }}>
+          <p key={idx} style={{ whiteSpace: "pre-wrap", color: m.role === "assistant" ? "rgba(255, 255, 255, 0.9)" : "rgba(167, 139, 250, 0.9)" }}>
             <strong>{m.role === "assistant" ? "LexFill: " : "You: "}</strong>{m.text}
           </p>
         ))}
@@ -142,7 +142,7 @@ export default function ChatPage() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") onSend(); }}
             />
-            {error && <p style={{ color: "crimson", marginTop: 6 }}>{error}</p>}
+            {error && <p style={{ color: "#ff6b6b", marginTop: 6 }}>{error}</p>}
           </div>
 
           <div className="row" style={{ marginTop: 10 }}>

@@ -98,7 +98,7 @@ export default function PreviewPage() {
         <>
           <h3 style={{ marginTop: 20 }}>Completed Document</h3>
           <div
-            style={{ border: "1px solid #e5e7eb", borderRadius: 6, padding: 12, background: "#fff" }}
+            style={{ border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: 8, padding: 16, background: "rgba(255, 255, 255, 0.02)" }}
             dangerouslySetInnerHTML={{ __html: filledHtml }}
           />
           <div className="row" style={{ marginTop: 12 }}>

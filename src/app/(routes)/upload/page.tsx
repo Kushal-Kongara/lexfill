@@ -77,7 +77,7 @@ export default function UploadPage() {
         <>
           <h3 style={{ marginTop: 20 }}>HTML Preview (raw from .docx)</h3>
           <div
-            style={{ border: "1px solid #e5e7eb", borderRadius: 6, padding: 12, background: "#fff" }}
+            style={{ border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: 8, padding: 16, background: "rgba(255, 255, 255, 0.02)" }}
             dangerouslySetInnerHTML={{ __html: htmlPreview }}
           />
         </>

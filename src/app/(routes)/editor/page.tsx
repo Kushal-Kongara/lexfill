@@ -32,7 +32,7 @@ export default function EditorPage() {
       {fields.length === 0 && <p>No fields loaded. Go to Upload first.</p>}
 
       {fields.map((f, i) => (
-        <div key={f.key} style={{ borderBottom: "1px solid #ddd", paddingBottom: 12, marginBottom: 12 }}>
+        <div key={f.key} style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)", paddingBottom: 12, marginBottom: 12 }}>
           <label className="label">Label</label>
           <input
             className="input"
@@ -46,20 +46,20 @@ export default function EditorPage() {
             value={f.type}
             onChange={(e) => updateField(i, "type", e.target.value as Field["type"])}
           >
-            <option value="text">Text</option>
-            <option value="email">Email</option>
-            <option value="date">Date</option>
-            <option value="number">Number</option>
-            <option value="currency">Currency</option>
-            <option value="choice">Choice</option>
+            <option value="text" style={{ background: "#0a0a0a", color: "#fff" }}>Text</option>
+            <option value="email" style={{ background: "#0a0a0a", color: "#fff" }}>Email</option>
+            <option value="date" style={{ background: "#0a0a0a", color: "#fff" }}>Date</option>
+            <option value="number" style={{ background: "#0a0a0a", color: "#fff" }}>Number</option>
+            <option value="currency" style={{ background: "#0a0a0a", color: "#fff" }}>Currency</option>
+            <option value="choice" style={{ background: "#0a0a0a", color: "#fff" }}>Choice</option>
           </select>
 
-          <label className="label" style={{ marginTop: 8 }}>
+          <label className="label" style={{ marginTop: 8, display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
             <input
               type="checkbox"
               checked={f.required ?? true}
               onChange={(e) => updateField(i, "required", e.target.checked)}
-              style={{ marginRight: 6 }}
+              style={{ marginRight: 8, width: 18, height: 18, cursor: 'pointer' }}
             />
             Required
           </label>

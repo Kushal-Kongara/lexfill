@@ -3,8 +3,8 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "LexFill — AI-assisted legal doc filler",
-  description: "Upload .docx, detect placeholders, fill via chat, download .docx.",
+  title: "LexFill — Legal Document Solutions for Startups",
+  description: "Tailored legal solutions for Startups and Venture Funds. AI-assisted document filling and management.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
