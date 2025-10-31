@@ -16,14 +16,21 @@ export default function PreviewPage() {
   const [values, setValues] = useState<Record<string, string>>({});
   const [filledHtml, setFilledHtml] = useState<string>("");
 
+  // Load fields, html, and saved values
   useEffect(() => {
     const rawFields = sessionStorage.getItem("lexfill_fields");
     const rawHtml = sessionStorage.getItem("lexfill_html");
+    const rawVals = sessionStorage.getItem("lexfill_values");
     if (rawFields) setFields(JSON.parse(rawFields));
     if (rawHtml) setHtml(rawHtml);
+    if (rawVals) setValues(JSON.parse(rawVals));
   }, []);
 
-  const setValue = (k: string, v: string) => setValues(prev => ({ ...prev, [k]: v }));
+  const setValue = (k: string, v: string) => {
+    const next = { ...values, [k]: v };
+    setValues(next);
+    sessionStorage.setItem("lexfill_values", JSON.stringify(next));
+  };
 
   const onPreview = async () => {
     if (!html) return alert("No HTML in session. Go to Upload first.");
@@ -74,6 +81,7 @@ export default function PreviewPage() {
                   className="input"
                   type={f.type === "date" ? "date" : f.type === "email" ? "email" : "text"}
                   placeholder={f.label}
+                  defaultValue={values[f.key] ?? ""}
                   onChange={(e) => setValue(f.key, e.target.value)}
                 />
               </div>
